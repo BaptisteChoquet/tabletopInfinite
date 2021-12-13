@@ -8,11 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TabletopInfiniteController extends AbstractController
 {
-    #[Route('/home', name: 'home')]
+    /**
+    * @Route("/home")
+    */
     public function index(): Response
     {
-        return $this->render('tabletop_infinite/index.html.twig', [
-            'controller_name' => 'TabletopInfiniteController',
+        return $this->render('tabletop_infinite/RollTest.html.twig', [
+            'controller_name' => 'RollTest',
         ]);
     }
 }
