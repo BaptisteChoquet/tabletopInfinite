@@ -90,3 +90,8 @@ header
 	margin-right: 20px;
 	margin-top: 5px;
 }
+
+.template-card{
+	border: #242424 solid 2px;
+	width: 20%;
+}

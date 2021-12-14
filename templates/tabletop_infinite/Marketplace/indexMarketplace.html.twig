@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% block stylesheets %}
+        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
 </head>
 <body>
     {% include 'tabletop_infinite/Marketplace/navbar.html.twig' %}
-    <h1>Je suis dans le marketplace</h1>
+    <div class="market-container">
+        <div class="top">
+            <p>Welcome on Tabletop Infinite's Marketplace !</p>
+            <input type="text" placeholder="Search templates...">
+        </div>
+        <div class="templates-container">
+            <div class="template-card">
+                <div class="template-card-img">
+                </div>
+                <div class="template-card-txt">
+                    <p>Description du template</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

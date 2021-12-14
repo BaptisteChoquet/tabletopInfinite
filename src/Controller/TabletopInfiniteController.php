@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TabletopInfiniteController extends AbstractController
 {
     /**
-    * @Route("/home")
+    * @Route("/home", name="home")
     */
     public function index(): Response
     {
@@ -19,7 +19,7 @@ class TabletopInfiniteController extends AbstractController
     }
 
     /**
-    * @Route("/market")
+    * @Route("/market", name="marketplace")
     */
     public function marketplace(): Response
     {
