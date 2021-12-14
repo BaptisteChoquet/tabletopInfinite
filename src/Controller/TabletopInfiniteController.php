@@ -28,6 +28,15 @@ class TabletopInfiniteController extends AbstractController
             'blank_pages' => $blankPageRepository->findAll(),
         ]);
     }
+    /**
+    * @Route("/aPropos", name="A_Propos")
+    */
+    public function propos(): Response
+    {
+        return $this->render('tabletop_infinite/aPropos.html.twig', [
+            'controller_name' => 'aPropos',
+        ]);
+    }
 }
 
 
