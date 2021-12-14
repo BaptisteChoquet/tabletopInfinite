@@ -23,7 +23,7 @@ class Widget
     private $Name;
 
     /**
-     * @ORM\Column(type="longtext")
+     * @ORM\Column(type="text")
      */
     private $Contenu;
 

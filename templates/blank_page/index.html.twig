@@ -16,9 +16,10 @@
     <input type="text" placeholder="rechercher un widget" name="search">
     <button>rechercher</button>
     {% for widget in widgets %}
-        <button>
-            {{widget.name}}
-        </button>
+        <div class="widget">
+            
+            {{widget.contenu}}
+        </div>
     {% endfor %}
    
 </div>
@@ -31,7 +32,8 @@
 </div>
 </div>
 
+<script src="{{ asset('js/widgets.js') }}">
+    
+</script>
 {% endblock %}
 
-<script>
-</script>
