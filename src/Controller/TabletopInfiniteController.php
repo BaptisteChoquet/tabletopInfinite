@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\TemplateRepository;
 
 class TabletopInfiniteController extends AbstractController
 {
@@ -21,11 +22,11 @@ class TabletopInfiniteController extends AbstractController
     /**
     * @Route("/market", name="marketplace")
     */
-    public function marketplace(): Response
+    public function marketplace(TemplateRepository $templateRepository): Response
     {
         return $this->render('tabletop_infinite/Marketplace/indexMarketplace.html.twig',  [
             'controller_name' => 'indexMarketplace',
-            'templates'=>["", "", "", "", "", "", "", ""],
+            'templates'=>$templateRepository->findAll(),
         ]);
     }
     
