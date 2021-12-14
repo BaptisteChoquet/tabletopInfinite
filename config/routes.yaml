@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+blank:
+  path: /new
+  controller: App\Controller\BlankPageController::new
