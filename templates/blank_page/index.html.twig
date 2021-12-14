@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Character creator{% endblock %}
+
+{% block body %}
+<head>
+    {% block stylesheets %}
+        <link href="{{ asset('css/characterSheet.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+</head>
+
+
+<div class="sheet-creator">
+<div class="widget-list">
+    <p>...</p>
+    <input type="text" placeholder="rechercher un widget" name="search">
+    <button>rechercher</button>
+    {% for widget in widgets %}
+        <button>
+            {{widget.name}}
+        </button>
+    {% endfor %}
+   
+</div>
+<div class="sheet-preview">
+
+    <p>
+        ...
+    </p>
+
+</div>
+</div>
+
+{% endblock %}
+
+<script>
+</script>
