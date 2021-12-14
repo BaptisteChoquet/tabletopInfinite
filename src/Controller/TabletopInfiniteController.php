@@ -17,4 +17,14 @@ class TabletopInfiniteController extends AbstractController
             'controller_name' => 'RollTest',
         ]);
     }
+
+    /**
+    * @Route("/market")
+    */
+    public function marketplace(): Response
+    {
+        return $this->render('tabletop_infinite/Marketplace/indexMarketplace.html.twig', [
+            'controller_name' => 'indexMarketplace',
+        ]);
+    }
 }
