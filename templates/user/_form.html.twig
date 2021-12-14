@@ -1,0 +1,25 @@
+{% block stylesheets %}
+        <link href="{{ asset('css/StyleForm.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+
+
+<div class="main">
+    <div class="form">
+        <h1>Inscription</h1>
+
+        {{ form_start(form) }}
+
+        <label>Pseudo</label>
+        <div>{{ form_widget(form.Pseudo)}}</div>
+        <label>Mot de Passe</label>
+        <div> {{ form_widget(form.MDP)}}</div>
+        
+
+       
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}
+</div>
+</div>
+    
