@@ -16,13 +16,15 @@
             <input type="text" placeholder="Search templates...">
         </div>
         <div class="templates-container">
-            <div class="template-card">
-                <div class="template-card-img">
+            {% for template in templates %}
+                <div class="template-card">
+                    <div class="template-card-img">
+                    </div>
+                    <div class="template-card-txt">
+                        <p>Description du template</p>
+                    </div>
                 </div>
-                <div class="template-card-txt">
-                    <p>Description du template</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </body>

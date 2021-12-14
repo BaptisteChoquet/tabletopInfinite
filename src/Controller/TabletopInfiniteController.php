@@ -23,8 +23,9 @@ class TabletopInfiniteController extends AbstractController
     */
     public function marketplace(): Response
     {
-        return $this->render('tabletop_infinite/Marketplace/indexMarketplace.html.twig', [
+        return $this->render('tabletop_infinite/Marketplace/indexMarketplace.html.twig',  [
             'controller_name' => 'indexMarketplace',
+            'templates'=>["", "", "", "", "", "", "", ""],
         ]);
     }
     
