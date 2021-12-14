@@ -27,4 +27,14 @@ class TabletopInfiniteController extends AbstractController
             'controller_name' => 'indexMarketplace',
         ]);
     }
+    
+    /**
+    * @Route("/aPropos", name="A_Propos")
+    */
+    public function propos(): Response
+    {
+        return $this->render('tabletop_infinite/aPropos.html.twig', [
+            'controller_name' => 'aPropos',
+        ]);
+    }
 }
