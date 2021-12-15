@@ -13,7 +13,7 @@
     <div class="market-container">
         <div class="top">
             <p>Welcome on Tabletop Infinite's Marketplace !</p>
-            <input type="text" placeholder="Search templates...">
+            <input type="text" placeholder="Search templates..." id="input-search">
         </div>
         <div class="templates-container">
             {% for template in templates %}
@@ -28,4 +28,5 @@
         </div>
     </div>
 </body>
+<script src="{{ asset('js/marketplace.js')}}"></script>
 </html>
