@@ -37,6 +37,11 @@ class Widget
      */
     private $rating;
 
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $Auteur;
+
     
 
     
@@ -102,6 +107,18 @@ class Widget
     public function getAsuprrimer(): ?string
     {
         return $this->Asuprrimer;
+    }
+
+    public function getAuteur(): ?string
+    {
+        return $this->Auteur;
+    }
+
+    public function setAuteur(string $Auteur): self
+    {
+        $this->Auteur = $Auteur;
+
+        return $this;
     }
 
    
