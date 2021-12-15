@@ -58,12 +58,6 @@ section {
   position: relative;
   z-index: 2;
 }
-img {
-  width: auto;
-  height: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
 
 .team {
   display: flex;
