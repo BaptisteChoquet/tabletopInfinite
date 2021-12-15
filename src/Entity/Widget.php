@@ -23,7 +23,7 @@ class Widget
     private $Name;
 
     /**
-     * @ORM\Column(type="longtext")
+     * @ORM\Column(type="text")
      */
     private $Contenu;
 
@@ -36,6 +36,8 @@ class Widget
      * @ORM\Column(type="integer")
      */
     private $rating;
+
+    
 
     
 
@@ -96,6 +98,13 @@ class Widget
     {
         return $this->type;
     }
+
+    public function getAsuprrimer(): ?string
+    {
+        return $this->Asuprrimer;
+    }
+
+   
 
     
 }
