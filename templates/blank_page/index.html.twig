@@ -16,13 +16,14 @@
     <input type="text" placeholder="rechercher un widget" name="search">
     <button>rechercher</button>
     {% for widget in widgets %}
-        <button>
-            {{widget.name}}
-        </button>
+        <div class="widget" id="{{ widget.name}}" draggable="true" ondragstart="drag(event)">
+            
+            {{widget.contenu}}
+        </div>
     {% endfor %}
    
 </div>
-<div class="sheet-preview">
+<div class="sheet-preview" id="sheet-preview-id" ondrop="drop(event)" ondragover="allowDrop(event)">
 
     <p>
         ...
@@ -31,7 +32,8 @@
 </div>
 </div>
 
+<script src="{{ asset('js/widgets.js') }}">
+    
+</script>
 {% endblock %}
 
-<script>
-</script>

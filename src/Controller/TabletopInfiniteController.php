@@ -39,6 +39,7 @@ class TabletopInfiniteController extends AbstractController
             'blank_pages' => $blankPageRepository->findAll(),
         ]);
     }
+
     /**
     * @Route("/aPropos", name="A_Propos")
     */
@@ -47,7 +48,7 @@ class TabletopInfiniteController extends AbstractController
         return $this->render('tabletop_infinite/aPropos.html.twig', [
             'controller_name' => 'aPropos',
         ]);
-    }
+        }
 }
 
 
