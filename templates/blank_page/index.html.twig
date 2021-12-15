@@ -16,14 +16,14 @@
     <input type="text" placeholder="rechercher un widget" name="search">
     <button>rechercher</button>
     {% for widget in widgets %}
-        <div class="widget" draggable="true" ondragstart="drag(event)">
+        <div class="widget" id="{{ widget.name}}" draggable="true" ondragstart="drag(event)">
             
             {{widget.contenu}}
         </div>
     {% endfor %}
    
 </div>
-<div class="sheet-preview" ondrop="drop(event)" ondragover="allowDrop(event)">
+<div class="sheet-preview" id="sheet-preview-id" ondrop="drop(event)" ondragover="allowDrop(event)">
 
     <p>
         ...
