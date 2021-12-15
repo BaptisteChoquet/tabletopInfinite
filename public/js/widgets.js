@@ -5,16 +5,17 @@ for (let i = 0; i < newWidget.length; i++) {
     
 }
 
+//Allows to drag and drop elements from the widget list to the character sheet
 function allowDrop(ev) {
     ev.preventDefault();
   }
   
   function drag(ev) {
-    ev.dataTransfer.setData(widget, ev.target.id);
+    ev.dataTransfer.setData("text", ev.target.id);
   }
   
   function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData(widget);
+    var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
   }
