@@ -1,92 +1,107 @@
-html
-{
-	height: 100%;
+html {
+  height: 100%;
 }
 
-body
-{
-	margin: 0px;
-	min-height: 100%;
+body {
+  margin: 0px;
+  min-height: 100%;
 }
 
-
-nav
-{
-	width: 100%;
-	height: 75px;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	border-top: solid 1px;
+nav {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: solid 1px;
 }
 
-nav a
-{
-	text-decoration: none;
-	color: black;
+nav a {
+  text-decoration: none;
+  color: black;
 }
 
-nav a:hover
-{
-	color: grey;
+nav a:hover {
+  color: grey;
 }
 
-.carrousel
-{
-	width: 100%;
-	height: 600px;
-	
-	background-image: linear-gradient(90deg, rgba(98,98,98,0.3) 0%, rgba(98,98,98,0.3) 100%),url("Caroussel.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	flex-direction: column;
-	color: #05438C;
+.carrousel {
+  width: 100%;
+  height: 600px;
+
+  background-image: linear-gradient(
+      90deg,
+      rgba(98, 98, 98, 0.3) 0%,
+      rgba(98, 98, 98, 0.3) 100%
+    ),
+    url("Caroussel.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  color: #05438c;
+}
+section {
+  background-image: linear-gradient(
+      90deg,
+      rgba(98, 98, 98, 0.5) 0%,
+      rgba(98, 98, 98, 0.5) 100%
+    ),
+    url("Equipe1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.color {
+  background-color: rgba(250, 250, 250, 0, 7);
+  position: relative;
+  z-index: 2;
 }
 
-footer
-{
-	background-color: #242424;
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	height: 50px;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+.team {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  border: transparent;
+  box-shadow: 10px 10px 10px 10px transparent;
+  color: wheat;
 }
 
-
-footer a
-{
-	text-decoration: none;
-	color: white;
+footer {
+  background-color: #242424;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-footer a:hover
-{
-	
-	color: grey;
+footer a {
+  text-decoration: none;
+  color: white;
 }
 
-header
-{
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	height: 35px;
-	
+footer a:hover {
+  color: grey;
 }
 
-.profil
-{
-	background-image: url("progil.png");
-	width: 30px;
-	height: 30px;
-	background-size: cover;
-	background-repeat: no-repeat;
-	margin-right: 20px;
-	margin-top: 5px;
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 35px;
+}
+
+.profil {
+  background-image: url("progil.png");
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+  margin-top: 5px;
 }
