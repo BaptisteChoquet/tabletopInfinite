@@ -19,3 +19,9 @@ function allowDrop(ev) {
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
   }
+
+//Allows to edit the content and values of a widget
+function editWidget(){
+    let widget = document.getElementsByClassName("widget");
+    console.log(widget);
+}

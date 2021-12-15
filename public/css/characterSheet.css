@@ -88,3 +88,8 @@ body{
     width: 100%;
 }
 
+.widget{
+    resize: both;
+    overflow: auto;
+}
+
