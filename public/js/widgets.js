@@ -10,11 +10,12 @@ function allowDrop(ev) {
   }
   
   function drag(ev) {
-    ev.dataTransfer.setData(widget, ev.target.id);
+    ev.dataTransfer.setData("text", ev.target.id);
   }
   
   function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData(widget);
+    var data = ev.dataTransfer.getData("text");
+    console.log(data+"salut");
     ev.target.appendChild(document.getElementById(data));
   }
