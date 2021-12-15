@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BlankPage{% endblock %}
+
+{% block body %}
+    <h1>BlankPage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ blank_page.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('blank_page_index') }}">back to list</a>
+
+    <a href="{{ path('blank_page_edit', {'id': blank_page.id}) }}">edit</a>
+
+    {{ include('blank_page/_delete_form.html.twig') }}
+{% endblock %}
