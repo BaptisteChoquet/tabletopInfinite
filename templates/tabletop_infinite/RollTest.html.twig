@@ -10,14 +10,14 @@
 <body>
 	<header>
 
-		<button class="profil"></button>
+		<a href="{{ path('user_index') }}"><button class="profil"></button></a>
 	</header>
 
 	<nav>
 		<a href="">Partie</a>
-		<a href="">Générateur</a>
+		<a href="{{ path('sheet_creator') }}">Générateur</a>
 		<a href="">MarketPlace</a>
-		<a href="/aPropos">A Propos</a>
+		<a href="{{ path('A_Propos') }}">A Propos</a>
 	</nav>
 	<span>
 		<div class="carrousel">
