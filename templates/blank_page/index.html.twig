@@ -6,12 +6,16 @@
 <head>
     {% block stylesheets %}
         <link href="{{ asset('css/characterSheet.css') }}" type="text/css" rel="stylesheet" />
+        <head> 
+  </head>
     {% endblock %}
 </head>
 
 
 <div class="sheet-creator">
 <div class="widget-list">
+<div class="hide">
+    </div>
     <h1>Widgets</h1>
 
     <div class="recherche">
@@ -23,6 +27,7 @@
     <div class="widget_container">
         <div class="name">
             <div>{{ widget.name }}</div>
+            <button onclick="editWidget({{widget.name}})">Éditer</button>
         </div>
         
         <hr>
@@ -38,7 +43,6 @@
             <p class="rating">Rating: {{ widget.rating }}/5</p>
         </div>
     </div>
-        <button onclick="editWidget()">Éditer</button>
     {% endfor %}
    
 </div>

@@ -21,7 +21,92 @@ function allowDrop(ev) {
   }
 
 //Allows to edit the content and values of a widget
-function editWidget(){
-    let widget = document.getElementsByClassName("widget");
-    console.log(widget);
+let widgetName = "";
+function editWidget(widget){
+    widgetName = widget;
+    let valueModifier = document.getElementsByClassName("hide");
+    valueModifier[0].style.display = "flex";
+    
 }
+
+//Creates a slider to change div width value
+function modifyWidth(){
+let valueModifier = document.getElementsByClassName("hide");
+let element = document.createElement("input");
+let label = document.createElement("label");
+label.innerHTML = "width";
+let widgetClass = document.createAttribute("class");
+widgetClass.value = "widthSlider";
+element.setAttributeNode(widgetClass);
+let attribute = document.createAttribute("type");
+attribute.value = "range";
+element.setAttributeNode(attribute);
+valueModifier[0].appendChild(label);
+valueModifier[0].appendChild(element);
+
+let min = document.createAttribute("min");
+min.value = "0";
+element.setAttributeNode(min);
+
+let max = document.createAttribute("max");
+max.value = "100";
+element.setAttributeNode(max);
+
+let value = document.createAttribute("value");
+value.value = "50";
+element.setAttributeNode(value);
+
+let widthSlider = document.getElementsByClassName("widthSlider");
+widthSlider[0].addEventListener("change",(sliderValue) =>{
+    
+    let modifiedWidget = document.getElementById(widgetName);
+    console.log(widgetName);
+    //console.log(modifiedWidget[0]);
+    console.log(sliderValue.target.value);
+    widgetName.style.width = sliderValue.target.value+"%";
+    console.log(widgetName.style);
+})
+}
+
+modifyWidth();
+
+//Creates a slider to change div height value
+function modifyHeight(){
+let valueModifier = document.getElementsByClassName("hide");
+let element = document.createElement("input");
+let label = document.createElement("label");
+label.innerHTML = "height";
+let widgetClass = document.createAttribute("class");
+widgetClass.value = "heightSlider";
+element.setAttributeNode(widgetClass);
+let attribute = document.createAttribute("type");
+attribute.value = "range";
+element.setAttributeNode(attribute);
+valueModifier[0].appendChild(label);
+valueModifier[0].appendChild(element);
+
+let min = document.createAttribute("min");
+min.value = "0";
+element.setAttributeNode(min);
+
+let max = document.createAttribute("max");
+max.value = "100";
+element.setAttributeNode(max);
+
+let value = document.createAttribute("value");
+value.value = "50";
+element.setAttributeNode(value);
+
+let heightSlider = document.getElementsByClassName("heightSlider");
+heightSlider[0].addEventListener("change",(sliderValue) =>{
+    
+    let modifiedWidget = document.getElementById(widgetName);
+    console.log(widgetName);
+    //console.log(modifiedWidget[0]);
+    console.log(sliderValue.target.value);
+    widgetName.style.height = sliderValue.target.value+"%";
+    console.log(widgetName.style);
+})
+}
+
+modifyHeight();

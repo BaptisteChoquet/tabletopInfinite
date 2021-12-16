@@ -36,8 +36,9 @@ body{
     background-color: white;
     margin-top: 10px;
     border:solid;
-    
+    border-radius: 10px;
     width: 90%;
+    display: inline-block;
 }
 .widget-list .widget
 {
@@ -89,7 +90,24 @@ body{
 }
 
 .widget{
-    resize: both;
     overflow: auto;
+    margin: 10px;
+    padding: 10px;
+    border: solid;
+    border-radius: 10px;
+    display: inline-block;
 }
 
+.hide
+{
+    position: absolute;
+    display:none;
+    height: 100%;
+    width: 30%;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 10px;
+    border: solid 2px;
+    background-color: aqua;
+
+}
