@@ -1,9 +1,17 @@
+function newWidget(databaseContent){
+    html.replace(/>/g, '&gt;')
+                  .replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/"/g, '&quot;')
+                  .replace(/'/g, '&apos;');
 let newWidget = document.getElementsByClassName("widget");
 for (let i = 0; i < newWidget.length; i++) {
-    newWidget[i].innerHTML = newWidget[i].innerText;
+    newWidget[i].innerHTML = databaseContent;
 
     
 }
+}
+
 
 //Allows to drag and drop elements from the widget list to the character sheet
 function allowDrop(ev) {
@@ -21,12 +29,20 @@ function allowDrop(ev) {
   }
 
 //Allows to edit the content and values of a widget
-let widgetName = "";
+let widgetId = "";
 function editWidget(widget){
-    widgetName = widget;
+    widgetId = widget;
+    widgetId = document.getElementById(widgetId);
     let valueModifier = document.getElementsByClassName("hide");
     valueModifier[0].style.display = "flex";
     
+}
+
+//Creates the attributes to modify in a widget
+function modifyWidget(){
+    let exit = Exit();
+    console.log(exit);
+
 }
 
 //Creates a slider to change div width value
@@ -59,12 +75,12 @@ element.setAttributeNode(value);
 let widthSlider = document.getElementsByClassName("widthSlider");
 widthSlider[0].addEventListener("change",(sliderValue) =>{
     
-    let modifiedWidget = document.getElementById(widgetName);
-    console.log(widgetName);
+    let modifiedWidget = document.getElementById(widgetId);
+    console.log(widgetId);
     //console.log(modifiedWidget[0]);
     console.log(sliderValue.target.value);
-    widgetName.style.width = sliderValue.target.value+"%";
-    console.log(widgetName.style);
+    widgetId.style.width = sliderValue.target.value+"%";
+    console.log(widgetId.style);
 })
 }
 
@@ -100,13 +116,15 @@ element.setAttributeNode(value);
 let heightSlider = document.getElementsByClassName("heightSlider");
 heightSlider[0].addEventListener("change",(sliderValue) =>{
     
-    let modifiedWidget = document.getElementById(widgetName);
-    console.log(widgetName);
+    let modifiedWidget = document.getElementById(widgetId);
+    console.log(widgetId);
+    
     //console.log(modifiedWidget[0]);
     console.log(sliderValue.target.value);
-    widgetName.style.height = sliderValue.target.value+"%";
-    console.log(widgetName.style);
+    widgetId.style.height = sliderValue.target.value+"%";
+    console.log(widgetId.style);
 })
 }
 
 modifyHeight();
+modifyWidget();

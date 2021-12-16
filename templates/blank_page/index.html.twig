@@ -27,13 +27,17 @@
     <div class="widget_container">
         <div class="name">
             <div>{{ widget.name }}</div>
-            <button onclick="editWidget({{widget.name}})">Éditer</button>
+            <button onclick="editWidget({{widget.id}})">Éditer</button>
         </div>
         
         <hr>
         <div class="preview">
-            <div class="widget" id="{{ widget.name}}" draggable="true" ondragstart="drag(event)">
-            {{widget.contenu}}
+            <div class="widget" id="{{ widget.id}}" draggable="true" ondragstart="drag(event)">
+            <script>
+                newWidget('{{widget.contenu}}');
+                
+               
+            </script>
             </div>
         </div>
         <hr>
