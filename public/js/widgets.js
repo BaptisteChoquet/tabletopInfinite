@@ -1,17 +1,12 @@
-function newWidget(databaseContent){
-    html.replace(/>/g, '&gt;')
-                  .replace(/&/g, '&amp;')
-                  .replace(/</g, '&lt;')
-                  .replace(/"/g, '&quot;')
-                  .replace(/'/g, '&apos;');
-let newWidget = document.getElementsByClassName("widget");
+
+
+let newWidget = document.getElementsByClassName("Widget");
 for (let i = 0; i < newWidget.length; i++) {
-    newWidget[i].innerHTML = databaseContent;
-
+  let test = newWidget[i].innerText;
     
-}
-}
+  newWidget[i].innerHTML = content;
 
+}
 
 //Allows to drag and drop elements from the widget list to the character sheet
 function allowDrop(ev) {
@@ -128,3 +123,5 @@ heightSlider[0].addEventListener("change",(sliderValue) =>{
 
 modifyHeight();
 modifyWidget();
+
+//'<div class="Life_bar"><div class="progress"></div></div><style type="text/css">.Life_bar{width: 70%;height: 10px;background-color: grey;}.progress{width: 50%;height: 10px;background-color: green;}</style>'
