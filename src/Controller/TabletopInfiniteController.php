@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\TemplateRepository;
 use App\Repository\BlankPageRepository;
+use App\Entity\Template;
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -53,42 +54,6 @@ class TabletopInfiniteController extends AbstractController
         ]);
         }
     
-        /**
-     * @Route("/test")
-     */
-    public function downloadToPDF(TemplateRepository $templateRepository)
-    {
-        // Configure Dompdf according to your needs
-        $pdfOptions = new Options();
-        $pdfOptions->set('isPhpEnabled', true);
-        
-        
-        // Instantiate Dompdf with our options
-        $dompdf = new Dompdf($pdfOptions);
-        $dompdf->set_base_path("/public/css/");
-
-        
-        // Retrieve the HTML generated in our twig file
-        $html = $this->renderView('tabletop_infinite/Marketplace/indexMarketplace.html.twig', [
-            'templates' =>$templateRepository->findAll(),
-            'title' => "Welcome to our PDF Test"
-        ]);
-
-        $html = $html.'<link href="style.css" type="text/css" rel="stylesheet" />';
-        
-        // Load HTML to Dompdf
-        $dompdf->loadHtml($html);
-
-        // Render the HTML as PDF
-        $dompdf->render();
-
-        // Output the generated PDF to Browser (force download)
-        $dompdf->stream("mypdf.pdf", [
-            "Attachment" => false
-        ]);
-
-        
-    }
 }
 
 

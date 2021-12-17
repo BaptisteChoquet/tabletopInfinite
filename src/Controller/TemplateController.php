@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 #[Route('/template')]
 class TemplateController extends AbstractController
 {
@@ -78,4 +81,40 @@ class TemplateController extends AbstractController
 
         return $this->redirectToRoute('template_index', [], Response::HTTP_SEE_OTHER);
     }
+    // /**
+    //  * @Route("/test/{id}")
+    //  */
+    // public function downloadToPDF(TemplateRepository $templateRepository, Template $template, int $id)
+    // {
+    //     // Configure Dompdf according to your needs
+    //     $pdfOptions = new Options();
+    //     $pdfOptions->set('isPhpEnabled', true);
+    //     $pdfOptions->set('isHtml5ParserEnabled', true);
+    //     $pdfOptions->set('isRemoteEnabled', true);
+        
+        
+    //     // Instantiate Dompdf with our options
+    //     $dompdf = new Dompdf($pdfOptions);
+    //     $dompdf->set_base_path("/public/css/");
+
+        
+    //     // Retrieve the HTML generated in our twig file
+    //     $html = $this->renderView('template/show.html.twig', [
+    //         'templates'=> $templateRepository->find($id),
+    //         'title' => "Welcome to our PDF Test"
+    //     ]);
+        
+    //     // Load HTML to Dompdf
+    //     $dompdf->loadHtml($html);
+
+    //     // Render the HTML as PDF
+    //     $dompdf->render();
+
+    //     // Output the generated PDF to Browser (force download)
+    //     $dompdf->stream("mypdf.pdf", [
+    //         "Attachment" => false
+    //     ]);
+
+        
+    // }
 }
