@@ -3,9 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>TableTopInfinity - Génerateur de feuille de personnages</title>
-	{% block stylesheets %}
-        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
-    {% endblock %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_logout') }}"><button class="profil"></button></a>
+    {% else %}
+
+        <a href="{{ path('login') }}"><button class="profil"></button></a>
+    {% endif %}
 </head>
 <body>
 	<header>
