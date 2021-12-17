@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>TableTopInfinity - Génerateur de feuille de personnages</title>
+	<title>TableTopInfinity - A Propos</title>
 	{% block stylesheets %}
         <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
     {% endblock %}
@@ -10,7 +10,12 @@
 <body>
 	<header>
 
-        <a href="{{ path('user_index') }}"><button class="profil"></button></a>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_logout') }}"><button class="profil"></button></a>
+    {% else %}
+
+        <a href="{{ path('login') }}"><button class="profil"></button></a>
+    {% endif %}
 	</header>
 
 	<nav>
