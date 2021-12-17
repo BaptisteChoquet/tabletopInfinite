@@ -10,7 +10,12 @@
 <body>
 	<header>
 
-		<button class="profil"></button>
+		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+			<a href="{{ path('app_logout') }}"><button class="profil"></button></a>
+		{% else %}
+
+			<a href="{{ path('login') }}"><button class="profil"></button></a>
+		{% endif %}
 	</header>
 
 	{% include 'tabletop_infinite/Marketplace/navbar.html.twig' %}

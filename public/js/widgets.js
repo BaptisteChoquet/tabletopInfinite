@@ -1,8 +1,11 @@
-let newWidget = document.getElementsByClassName("widget");
-for (let i = 0; i < newWidget.length; i++) {
-    newWidget[i].innerHTML = newWidget[i].innerText;
 
+
+let newWidget = document.getElementsByClassName("Widget");
+for (let i = 0; i < newWidget.length; i++) {
+  let test = newWidget[i].innerText;
     
+  newWidget[i].innerHTML = content;
+
 }
 
 //Allows to drag and drop elements from the widget list to the character sheet
@@ -19,3 +22,11 @@ function allowDrop(ev) {
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
   }
+
+
+function editWidget(widget){
+    let valueModifier = document.getElementsByClassName("hide");
+    valueModifier[0].style.display = "flex";
+    
+}
+

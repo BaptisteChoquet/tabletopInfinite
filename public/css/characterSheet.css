@@ -16,12 +16,103 @@ body{
 .widget-list{
     height: 100%;
     width: 30%;
-    background-color: blue;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 10px;
+    border: solid 2px;
 }
 
 .sheet-preview{
     height: 100%;
     width: 70%;
-    background-color: brown;
+    border:solid;
 }
 
+.widget_container
+{
+    box-shadow: 14px 16px 15px 5px rgba(0,0,0,0.47);
+    background-color: white;
+    margin-top: 10px;
+    border:solid;
+    border-radius: 10px;
+    width: 90%;
+    display: inline-block;
+}
+.widget-list .widget
+{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sheet-preview
+{
+    min-height: 100%;
+    background-color: white;
+}
+
+.name
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 5px;
+    margin-top:5px;
+}
+
+.recherche
+{
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.recherche input
+{
+    width: 70%;
+}
+
+.recherche button
+{
+    width: 20%;
+}
+
+.information
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.widget{
+    overflow: auto;
+    margin: 10px;
+    padding: 10px;
+    border: solid;
+    border-radius: 10px;
+    
+}
+
+.sheet-preview button{
+    display: none;
+    
+}
+
+.hide
+{
+    position: absolute;
+    display:none;
+    height: 100%;
+    width: 30%;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 10px;
+    border: solid 2px;
+    background-color: aqua;
+
+}
