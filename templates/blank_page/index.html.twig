@@ -27,8 +27,10 @@
         let content = "";
     </script>
 
-    {{ include ('widgets/*.html') }}
-    /*{% for widget in widgets %}
+    {% for widget in widgets %}
+    {% set content %}
+    { include 'widgets/Life_bar.html' }
+    {% endset %}
     <div class="widget_container">
         <div class="name">
             <div>{{ widget.name }}</div>
@@ -48,7 +50,7 @@
             <p class="rating">Rating: {{ widget.rating }}/5</p>
         </div>
     </div>
-    {% endfor %}*/
+    {% endfor %}
    
 </div>
 <div class="sheet-preview" id="sheet-preview-id" ondrop="drop(event)" ondragover="allowDrop(event)">
