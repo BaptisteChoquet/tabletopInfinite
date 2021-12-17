@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% block stylesheets %}
-        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
     {% endblock %}
 </head>
-<body>
+<body class="marketplace">
+
     {% include 'tabletop_infinite/Marketplace/navbar.html.twig' %}
+
+
     <div class="market-container">
         <div class="top">
             <p>Welcome on Tabletop Infinite's Marketplace !</p>
@@ -17,16 +20,43 @@
         </div>
         <div class="templates-container">
             {% for template in templates %}
-                <div class="template-card">
-                    <div class="template-card-img">
+                
+                <a href="{{ path('template_show', {'id': template.id}) }}" target="_blank" class="template-card">
+                    <div class="template-card-container">
+                        <div class="template-card-content">
+                            {{template.contenu}}
+                        </div>
+                        <div class="template-card-txt">
+                            <p>{{template.description}}</p>
+                        </div>
                     </div>
-                    <div class="template-card-txt">
-                        <p>{{template.description}}</p>
-                    </div>
-                </div>
+                </a>
+            
             {% endfor %}
         </div>
     </div>
+    
 </body>
-<script src="{{ asset('js/marketplace.js')}}"></script>
+<script type="text/javascript">
+let allTemplates = document.getElementsByClassName('template-card');
+let input = document.getElementById('input-search');
+console.log(input);
+
+input.addEventListener('input', e =>{
+    let search = e.target.value;
+    for (let i = 0; i < allTemplates.length; i++) {
+        if (!allTemplates[i].innerText.toLowerCase().includes(search.toLowerCase())) {
+            allTemplates[i].style.display = "none"
+        }else{
+            allTemplates[i].style.display = "block"
+        }
+    }
+})
+
+for (let i = 0; i < allTemplates.length; i++) {
+    allTemplates[i].innerHTML = allTemplates[i].innerText;
+
+    
+}
+</script>
 </html>

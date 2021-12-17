@@ -5,6 +5,7 @@ html {
 body {
   margin: 0px;
   min-height: 100%;
+  background-color: rgb(150, 150, 150);
 }
 
 nav {
@@ -118,15 +119,61 @@ header {
 	width: 20%;
 	min-height: 15vh;
 	margin-bottom: 5%;
-	background-image: linear-gradient(90deg, rgba(98,98,98,0.3) 0%, rgba(98,98,98,0.3) 100%),url("Caroussel.jpg");
+	background-image: linear-gradient(
+    15deg,
+    rgba(0, 0, 0, 1),
+    rgba(15, 15, 15, 0.8),
+    rgba(255, 255, 255, 0.5)),
+    url("Caroussel.jpg");
 	background-size: cover;
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  padding: 5%;
+  margin-top: 5%;
+  transition: ease 1s;
+  
+
 }
-.template-card-txt{
-	color: white;
+
+.template-card-txt p{
+  color: white;
+  
 }
-/* .template-card img{
-	
-	width: 100%;
-	height: 10vh;
-} */
+
+a:visited{
+  color: white;
+}
+a:link{
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}
+
+#show-template-container{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+  margin-top: 10%;
+  width: 31.5cm;
+  height: 44.5cm;
+  border: solid black 1px;
+  background-color: white;
+}
+
+.context-action{
+  width: 10%;
+  height: 100%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.template-card:hover{
+  transform: scale(1.1);
+  transition: ease 1s;
+}
+

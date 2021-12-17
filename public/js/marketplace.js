@@ -13,3 +13,10 @@ input.addEventListener('input', e =>{
     }
 })
 
+for (let i = 0; i < allTemplates.length; i++) {
+    allTemplates[i].innerHTML = allTemplates[i].innerText;
+
+    
+}
+
+

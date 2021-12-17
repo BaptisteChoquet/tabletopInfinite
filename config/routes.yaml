@@ -4,3 +4,6 @@
 blank:
   path: /new
   controller: App\Controller\BlankPageController::new
+test:
+  path: /test
+  controller: App\Controller\TabletopinfiniteController::test
