@@ -15,6 +15,7 @@
 <div class="sheet-creator">
 <div class="widget-list">
 <div class="hide">
+    <button onclick="closeDiv()">X</button>
     </div>
     <h1>Widgets</h1>
 
@@ -25,7 +26,9 @@
     <script>
         let content = "";
     </script>
-    {% for widget in widgets %}
+
+    {{ include ('widgets/*.html') }}
+    /*{% for widget in widgets %}
     <div class="widget_container">
         <div class="name">
             <div>{{ widget.name }}</div>
@@ -45,7 +48,7 @@
             <p class="rating">Rating: {{ widget.rating }}/5</p>
         </div>
     </div>
-    {% endfor %}
+    {% endfor %}*/
    
 </div>
 <div class="sheet-preview" id="sheet-preview-id" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -59,4 +62,3 @@
     
 </script>
 {% endblock %}
-

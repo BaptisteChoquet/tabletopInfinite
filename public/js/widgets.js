@@ -79,7 +79,7 @@ widthSlider[0].addEventListener("change",(sliderValue) =>{
 })
 }
 
-modifyWidth();
+//modifyWidth();
 
 //Creates a slider to change div height value
 function modifyHeight(){
@@ -121,7 +121,13 @@ heightSlider[0].addEventListener("change",(sliderValue) =>{
 })
 }
 
-modifyHeight();
-modifyWidget();
+//modifyHeight();
+//modifyWidget();
+
+//Closes the modifer Div
+function closeDiv(){
+    let valueModifier = document.getElementsByClassName("hide");
+    valueModifier[0].style.display = "none";
+}
 
 //'<div class="Life_bar"><div class="progress"></div></div><style type="text/css">.Life_bar{width: 70%;height: 10px;background-color: grey;}.progress{width: 50%;height: 10px;background-color: green;}</style>'

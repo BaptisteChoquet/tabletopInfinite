@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+
+<body>
+<div class="Life_bar">
+    <div class="progress"></div>
+</div>
+
+
+<style type="text/css">
+.Life_bar
+{
+    width: 70%;
+    height: 10px;
+    background-color: grey;
+}    
+.progress
+{
+    width: 50%;
+    height: 10px;
+    background-color: green;
+}
+
+</style>
+
+<script src="../blank_page/index.html.twig">
+    function Exit() {
+        let test = [["width", "range"], ["height", "range"], ["percent", "range"]];
+        console.log(test);
+        return test;
+    }
+    modifyWidget();
+    modifyWidth();
+    modifyHeight();
+</script>
+</body>
