@@ -95,7 +95,12 @@ body{
     padding: 10px;
     border: solid;
     border-radius: 10px;
-    display: inline-block;
+    
+}
+
+.sheet-preview button{
+    display: none;
+    
 }
 
 .hide
