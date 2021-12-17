@@ -183,6 +183,16 @@ a{
     width: auto;
     height: auto;
   }
+  footer {
+    background-color: #242424;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
   footer a {
     text-decoration: none;
     color: white;
@@ -197,6 +207,16 @@ a{
     text-decoration: none;
     color: white;
     position: relative;
+  }
+  footer {
+    background-color: #242424;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
   footer a:hover {
     color: grey;

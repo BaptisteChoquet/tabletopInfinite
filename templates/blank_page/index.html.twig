@@ -5,11 +5,19 @@
 {% block body %}
 <head>
     {% block stylesheets %}
+        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
         <link href="{{ asset('css/characterSheet.css') }}" type="text/css" rel="stylesheet" />
         <head> 
   </head>
     {% endblock %}
 </head>
+<nav>
+		<a href="{{ path('home') }}">Home</a>
+		<a href="">Partie</a>
+		<a href="">MarketPlace</a>
+        <a href="{{ path('A_Propos') }}">A Propos</a>
+
+	</nav>
 
 
 <div class="sheet-creator">
@@ -17,7 +25,7 @@
 <div class="hide">
     </div>
     <h1>Widgets</h1>
-
+    <button onclick="apercu()" >Apercu</button>
     <div class="recherche">
         <input type="text" placeholder="Rechercher un widget" name="search">
         <button>Rechercher</button>
