@@ -8,22 +8,8 @@
     {% endblock %}
 </head>
 <body>
-	<header>
+    {% include 'tabletop_infinite/Marketplace/navbar.html.twig' %}
 
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a href="{{ path('app_logout') }}"><button class="profil"></button></a>
-    {% else %}
-
-        <a href="{{ path('login') }}"><button class="profil"></button></a>
-    {% endif %}
-	</header>
-
-	<nav>
-		<a href="{{ path('home') }}">Home</a>
-		<a href="">Partie</a>
-		<a href="{{ path('sheet_creator') }}">Générateur</a>
-		<a href="">MarketPlace</a>
-	</nav>
 
     <h1 style=" text-align: center">Fonctionnement du site</h1>
 

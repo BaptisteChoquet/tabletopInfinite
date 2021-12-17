@@ -29,6 +29,8 @@ class TabletopInfiniteController extends AbstractController
     */
     public function marketplace(TemplateRepository $templateRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('tabletop_infinite/Marketplace/indexMarketplace.html.twig',  [
             'controller_name' => 'indexMarketplace',
             'templates'=>$templateRepository->findAll(),
@@ -45,7 +47,7 @@ class TabletopInfiniteController extends AbstractController
     }
 
     /**
-    * @Route("/aPropos", name="A_Propos")
+    * @Route("/aPropos", name="about")
     */
     public function propos(): Response
     {
