@@ -30,3 +30,23 @@ function editWidget(widget){
     
 }
 
+let IsBorderActive = "true";
+function apercu(){
+  let widgets = document.getElementsByClassName("widget");
+  if(IsBorderActive == "true"){
+    
+    for(let i = 0;i <widgets.length;i++){
+      widgets[i].style.border = "none";
+      
+    }
+    IsBorderActive = "false"
+  }else{
+    
+    for(let i = 0;i <widgets.length;i++){
+      widgets[i].style.border = "solid";
+    }
+    IsBorderActive = "true"
+  }
+  
+  
+}
