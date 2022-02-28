@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Character creator{% endblock %}
+{% block title %}Character creator
+{% endblock %}
 
 {% block body %}
 <head>
@@ -22,7 +23,7 @@
     <h1>Widgets</h1>
     <button onclick="apercu()" >Apercu</button>
     <div class="recherche">
-        <input type="text" placeholder="Rechercher un widget" name="search">
+        <input type="text" placeholder="Rechercher un widget" name="search" id="search">
         <button>Rechercher</button>
     </div>
     <script>
@@ -73,4 +74,3 @@
 </script>
 
 {% endblock %}
-
