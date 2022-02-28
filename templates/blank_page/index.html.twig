@@ -7,6 +7,7 @@
     {% block stylesheets %}
         <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
         <link href="{{ asset('css/characterSheet.css') }}" type="text/css" rel="stylesheet" />
+    
         <head> 
   </head>
     {% endblock %}
@@ -29,8 +30,17 @@
     </script>
     {% for widget in widgets %}
     <div class="widget_container">
-        <div class="name">
+        <div class="name" style="display:flex; justify-content:space-between">
             <div>{{ widget.name }}</div>
+                        <button id="closeBtn" onclick="closeDiv({{ widget.id}})">X</button>
+                <script>
+                    function closeDiv(id){
+                        let div = document.getElementById(id);
+                        div.style.display = "none";
+                    }
+                </script>
+                
+            
             
         </div>
         
@@ -38,6 +48,7 @@
         <div class="preview">
             <div class="widget" id="{{ widget.id}}" draggable="true" ondragstart="drag(event)">
             {{ widget.contenu|raw }}
+
             </div>
         </div>
         <hr>
@@ -60,5 +71,6 @@
 <script src="{{ asset('js/widgets.js') }}">
     
 </script>
+
 {% endblock %}
 
