@@ -134,3 +134,24 @@ nav {
   nav a:hover {
     color: grey;
   }
+
+  .cont_btn{
+      display: flex;
+  }
+
+  .pop_up_save{
+    width: 20%;
+    position: absolute;
+    margin-left: 40%;
+    height: 300px;
+    background-color: blue;
+    margin-top: 100px;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  
+  #invisiblevalue{
+      display: none;
+  }

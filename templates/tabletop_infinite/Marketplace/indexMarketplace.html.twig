@@ -21,7 +21,7 @@
         <div class="templates-container">
             {% for template in templates %}
                 
-                <a href="{{ path('template_show', {'id': template.id}) }}" target="_blank" class="template-card">
+                <a href="sheet_creator/{{template.id}}" class="template-card">
                     <div class="template-card-container">
                         <div class="template-card-content">
                             {{template.contenu}}

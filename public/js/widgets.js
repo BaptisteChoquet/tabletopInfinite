@@ -49,4 +49,23 @@ function apercu(){
   }
   
   
+
+
+}
+
+
+function save(){
+
+  let popup = document.getElementById("pop_up_save");
+  let page = document.getElementById("sheet-preview-id");
+  let invisible = document.getElementById("invisiblevalue");
+  
+  page = page.innerHTML;
+  popup.style.display = "flex";
+  
+  invisible.value = page;
+ 
+  
+  //envoyer la page en bdd
+  //crée l'entité
 }
