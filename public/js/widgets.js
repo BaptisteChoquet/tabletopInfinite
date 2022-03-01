@@ -56,12 +56,11 @@ input.addEventListener("input", e => {
       allWidgets[i].style.display = "block";
     }
   }
-<<<<<<< HEAD
   
   
 
 
-}
+
 
 
 function save(){
@@ -79,6 +78,4 @@ function save(){
   //envoyer la page en bdd
   //crée l'entité
 }
-=======
 });
->>>>>>> 68150d5b253128411b657e10a4a0e608276667dd
