@@ -13,6 +13,16 @@ body{
     flex-direction: row;
 }
 
+#closeBtn {
+    top: 5px;
+    right: 5px;
+    border-radius: 25%;
+    color: red;
+    background-color: grey;
+    position: relative;
+    z-index: 2;
+}
+
 .widget-list{
     height: 100%;
     width: 30%;

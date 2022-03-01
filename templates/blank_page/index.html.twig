@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Character creator{% endblock %}
+{% block title %}Character creator
+{% endblock %}
 
 {% block body %}
 <head>
     {% block stylesheets %}
         <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
         <link href="{{ asset('css/characterSheet.css') }}" type="text/css" rel="stylesheet" />
+    
         <head> 
   </head>
     {% endblock %}
@@ -25,7 +27,7 @@
     </div>
     
     <div class="recherche">
-        <input type="text" placeholder="Rechercher un widget" name="search">
+        <input type="text" placeholder="Rechercher un widget" name="search" id="search">
         <button>Rechercher</button>
     </div>
     <script>
@@ -33,15 +35,29 @@
     </script>
     {% for widget in widgets %}
     <div class="widget_container">
-        <div class="name">
+        <div class="name" style="display:flex; justify-content:space-between">
             <div>{{ widget.name }}</div>
+<<<<<<< HEAD
            
+=======
+                        <button id="closeBtn" onclick="closeDiv({{ widget.id}})">X</button>
+                <script>
+                    function closeDiv(id){
+                        let div = document.getElementById(id);
+                        div.style.display = "none";
+                    }
+                </script>
+                
+            
+            
+>>>>>>> 68150d5b253128411b657e10a4a0e608276667dd
         </div>
         
         <hr>
         <div class="preview">
             <div class="widget" id="{{ widget.id}}" draggable="true" ondragstart="drag(event)">
             {{ widget.contenu|raw }}
+
             </div>
         </div>
         <hr>
@@ -72,5 +88,5 @@
 <script src="{{ asset('js/widgets.js') }}">
     
 </script>
-{% endblock %}
 
+{% endblock %}
