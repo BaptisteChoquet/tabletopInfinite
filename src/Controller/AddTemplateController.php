@@ -22,8 +22,11 @@ class AddTemplateController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->persist($template);
         $em->flush();
+        //$user = $this->container->get('security.token_storage')->getToken()->getUser();
+        //$user = $user->getName();
 
-        return new Response("test");
+        
+        return new Response("");
     }
 
 

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TemplateRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,23 @@ class Template
      * @ORM\Column(type="array", nullable=true)
      */
     private $tag = [];
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Users::class)
+     */
+    private $Users;
+
+   
+
+    
+
+    
+
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+        $this->User = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -123,4 +142,22 @@ class Template
 
         return $this;
     }
+
+    public function getUsers(): ?Users
+    {
+        return $this->Users;
+    }
+
+    public function setUsers(?Users $Users): self
+    {
+        $this->Users = $Users;
+
+        return $this;
+    }
+
+    
+
+    
+
+    
 }

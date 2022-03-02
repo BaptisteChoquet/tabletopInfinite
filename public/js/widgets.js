@@ -63,6 +63,9 @@ input.addEventListener("input", e => {
 
 
 
+
+});
+
 function save(){
 
   let popup = document.getElementById("pop_up_save");
@@ -78,4 +81,3 @@ function save(){
   //envoyer la page en bdd
   //crée l'entité
 }
-});
