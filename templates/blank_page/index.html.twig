@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Character creator{% endblock %}
+{% block title %}Character creator
+{% endblock %}
 
 {% block body %}
 <head>
@@ -20,9 +21,13 @@
 <div class="hide">
     </div>
     <h1>Widgets</h1>
-    <button onclick="apercu()" >Apercu</button>
+    <div class="cont_btn">
+        <button onclick="apercu()" >Apercu</button>
+        <button onclick="save()">Sauvegarder</button>
+    </div>
+    
     <div class="recherche">
-        <input type="text" placeholder="Rechercher un widget" name="search">
+        <input type="text" placeholder="Rechercher un widget" name="search" id="search">
         <button>Rechercher</button>
     </div>
     <script>
@@ -75,16 +80,30 @@
     {% endfor %}
    
 </div>
+<form action="/add/template" class="pop_up_save" id="pop_up_save" method="post">
+    <h1>Sauvegarder</h1>
+    <label>Quel est le nom de votre projet?</label>
+    <input type="text" id="nameTemplate" name="name">
+    <input type="text" id="descriptionTemplate" name="description">
+    <input type="text" id="invisiblevalue" name="page">
+    <button >Sauvegarder</button>
+</form>
 <div class="sheet-preview" id="sheet-preview-id" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-    
+{% if template  %}
+ {{template.contenu|raw}}
+{% endif %}
 
 </div>
 </div>
+
+<script>
+
+
+
+</script>
 
 <script src="{{ asset('js/widgets.js') }}">
     
 </script>
 
 {% endblock %}
-

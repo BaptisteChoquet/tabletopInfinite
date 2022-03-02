@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\WidgetRepository;
+use App\Repository\TemplateRepository;
 
 class SheetCreatorController extends AbstractController
 {
@@ -20,10 +21,31 @@ class SheetCreatorController extends AbstractController
         $widgets = $doctrine->getRepository(Widget::class)->findAll();
         $users = $this->getUser();
         $favorys = $doctrine->getRepository(Favory::class)->findby(['users'=>$users]);
+        $void = [];
         return $this->render('blank_page/index.html.twig', [
             'controller_name' => 'SheetCreatorController',
             'widgets' => $widgets,
-            'favorys' => $favorys
+            'favorys' => $favorys,
+            'template'=> $void
+        ]);
+    }
+
+
+    /**
+    * @Route("/sheet_creator/{id}", name="sheet_creatorId")
+    */
+    public function index2(ManagerRegistry $doctrine,int $id): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        $repository = $$doctrine->getRepository(Widget::class)->findAll();
+        $users = $this->getUser();
+        $favorys = $doctrine->getRepository(Favory::class)->findby(['users'=>$users]);
+        $template = $doctrine->getRepository(Template::class)->findOneBy(["id" => 10]);
+        return $this->render('blank_page/index.html.twig', [
+            'controller_name' => 'SheetCreatorController',
+            'widgets' => $repository,
+            'template'=>$template,
+            'favorys' => $favorys,
         ]);
     }
 }

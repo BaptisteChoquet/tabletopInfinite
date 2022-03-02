@@ -15,22 +15,19 @@
 
     <div class="market-container">
         <div class="top">
-            <p>Welcome on Tabletop Infinite's Marketplace !</p>
+            <p>Welcome on Tabletop Infinite's Marketplace !!!</p>
             <input type="text" placeholder="Search templates..." id="input-search">
         </div>
         <div class="templates-container">
             {% for template in templates %}
-                
-                <a href="{{ path('template_show', {'id': template.id}) }}" target="_blank" class="template-card">
-                    <div class="template-card-container">
-                        <div class="template-card-content">
-                            {{template.contenu}}
-                        </div>
-                        <div class="template-card-txt">
-                            <p>{{template.description}}</p>
-                        </div>
-                    </div>
-                </a>
+                <div class="template">
+                    <div class="name">{{template.name}}</div>
+                    <div class="contenu">{{ template.contenu | raw }}</div>
+                    <div class="description">{{ template.description}}</div>
+                    <div class="rating">{{ template.rating}}/5</div>
+                    <a href="/sheet_creator/{{template.id}}">Editer</a>
+                </div>
+
             
             {% endfor %}
         </div>
@@ -58,5 +55,7 @@ for (let i = 0; i < allTemplates.length; i++) {
 
     
 }
+
+
 </script>
 </html>
