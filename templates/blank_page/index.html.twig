@@ -33,7 +33,20 @@
         <div class="name" style="display:flex; justify-content:space-between">
             <div>{{ widget.name }}</div>
                         <button id="closeBtn" onclick="closeDiv({{ widget.id}})">X</button>
-                        <a href="/addFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
+                        {% if favorys %}
+                        
+                        {% for favory in favorys %}
+                            {% if widget == favory.widget %}
+                                <a href="/suppFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
+                                {% else %}
+                                <a href="/addFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
+                            {% endif %}
+                        {% endfor %}
+                        {% else %}
+                            
+                         <a href="/addFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
+
+                        {% endif %}
                 <script>
                     function closeDiv(id){
                         let div = document.getElementById(id);
