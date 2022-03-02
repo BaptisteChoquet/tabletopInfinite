@@ -33,6 +33,7 @@
         <div class="name" style="display:flex; justify-content:space-between">
             <div>{{ widget.name }}</div>
                         <button id="closeBtn" onclick="closeDiv({{ widget.id}})">X</button>
+                        <a href="/addFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
                 <script>
                     function closeDiv(id){
                         let div = document.getElementById(id);
