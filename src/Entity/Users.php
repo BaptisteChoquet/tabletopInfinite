@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -36,6 +38,16 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Favory::class, mappedBy="users")
+     */
+    private $favories;
+
+    public function __construct()
+    {
+        $this->favories = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -124,5 +136,35 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, Favory>
+     */
+    public function getFavories(): Collection
+    {
+        return $this->favories;
+    }
+
+    public function addFavory(Favory $favory): self
+    {
+        if (!$this->favories->contains($favory)) {
+            $this->favories[] = $favory;
+            $favory->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavory(Favory $favory): self
+    {
+        if ($this->favories->removeElement($favory)) {
+            // set the owning side to null (unless already changed)
+            if ($favory->getUsers() === $this) {
+                $favory->setUsers(null);
+            }
+        }
+
+        return $this;
     }
 }
