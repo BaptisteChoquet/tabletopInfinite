@@ -8,10 +8,26 @@
     {% block stylesheets %}
         <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
         <link href="{{ asset('css/characterSheet.css') }}" type="text/css" rel="stylesheet" />
-    
-        <head> 
-  </head>
     {% endblock %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script>
+                function fav(idWidget){
+                       
+                            jQuery.ajax({  
+                                url:'/sheet_creator',  
+                                type:'POST',
+                                data: {id: idWidget},  
+                                async:true,  
+                            });
+                            let favButton = document.getElementById('favoryBtn');
+                            if (favButton.style.color == "red"){
+                                favButton.style.color = "green";
+                            }else if (favButton.style.color =="green"){
+                                favButton.style.color = "red";
+                            }
+                       
+                }
+                </script>
 </head>
 {% include 'tabletop_infinite/Marketplace/navbar.html.twig' %}
 
@@ -38,26 +54,16 @@
         <div class="name" style="display:flex; justify-content:space-between;">
             <div>{{ widget.name }} </div>
                         <button id="closeBtn" onclick="closeDiv({{ widget.id}})">X</button>
-                        {% if favorys %}
-                        
-                        {% for favory in favorys %}
-                            {% if widget == favory.widget %}
-                                <a href="/suppFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
-                                {% else %}
-                               <a href="/addFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
-                            {% endif %}
-                        {% endfor %}
-                        {% else %}
-                            
-                         <a href="/addFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
-
-                        {% endif %}
                 <script>
                     function closeDiv(id){
                         let div = document.getElementById(id);
                         div.style.display = "none";
                     }
+
+                    
                 </script>
+                
+                
                 
             
             
@@ -75,6 +81,20 @@
             <p class="auteur">Auteur: {{ widget.auteur }}</p>
             
             <p class="rating">Rating: {{ widget.rating }}/5</p>
+            {% if favorys %}
+                        
+                            {% for favory in favorys %}
+                                {% if widget == favory.widget %}
+                                    <a><button id="favoryBtn" onclick="fav({{ widget.id}})"style ="color: red;" >Favory</button></a>
+                                    {% else %}
+                                    <a><button id="favoryBtn" onclick="fav({{ widget.id}})" style ="color: green;">Favory</button></a>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            
+                         <a><button id="favoryBtn" onclick="fav({{ widget.id}})" style ="color: green;">Favory</button></a>
+
+                        {% endif %}
         </div>
     </div>
     {% endfor %}
