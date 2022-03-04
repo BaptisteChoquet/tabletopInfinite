@@ -54,20 +54,6 @@
         <div class="name" style="display:flex; justify-content:space-between">
             <div>{{ widget.name }}</div>
                         <button id="closeBtn" onclick="closeDiv({{ widget.id}})">X</button>
-                        {% if favorys %}
-                        
-                            {% for favory in favorys %}
-                                {% if widget == favory.widget %}
-                                    <a><button id="favoryBtn" onclick="fav({{ widget.id}})"style ="color: red;" >Favory</button></a>
-                                    {% else %}
-                                    <a><button id="favoryBtn" onclick="fav({{ widget.id}})" style ="color: green;">Favory</button></a>
-                                {% endif %}
-                            {% endfor %}
-                        {% else %}
-                            
-                         <a><button id="favoryBtn" onclick="fav({{ widget.id}})" style ="color: green;">Favory</button></a>
-
-                        {% endif %}
                 <script>
                     function closeDiv(id){
                         let div = document.getElementById(id);
@@ -95,6 +81,20 @@
             <p class="auteur">Auteur: {{ widget.auteur }}</p>
             
             <p class="rating">Rating: {{ widget.rating }}/5</p>
+            {% if favorys %}
+                        
+                            {% for favory in favorys %}
+                                {% if widget == favory.widget %}
+                                    <a><button id="favoryBtn" onclick="fav({{ widget.id}})"style ="color: red;" >Favory</button></a>
+                                    {% else %}
+                                    <a><button id="favoryBtn" onclick="fav({{ widget.id}})" style ="color: green;">Favory</button></a>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            
+                         <a><button id="favoryBtn" onclick="fav({{ widget.id}})" style ="color: green;">Favory</button></a>
+
+                        {% endif %}
         </div>
     </div>
     {% endfor %}
