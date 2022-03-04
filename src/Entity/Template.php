@@ -155,7 +155,12 @@ class Template
         return $this;
     }
 
-    
+    public function __toString(): string
+    {
+        $this->Users = $Users;
+
+        return $this;
+    }
 
     
 

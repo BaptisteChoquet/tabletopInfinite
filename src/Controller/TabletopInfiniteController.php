@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\TemplateRepository;
 use App\Repository\BlankPageRepository;
 use App\Entity\Template;
-
+use App\Entity\Users;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
@@ -34,6 +34,7 @@ class TabletopInfiniteController extends AbstractController
         return $this->render('tabletop_infinite/Marketplace/indexMarketplace.html.twig',  [
             'controller_name' => 'indexMarketplace',
             'templates'=>$templateRepository->findAll(),
+            'currentUser'=> $this->getUser(),
         ]);
     }
     /**

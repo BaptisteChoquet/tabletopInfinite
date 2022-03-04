@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TableTopInfinite - MarketPlace</title>
     {% block stylesheets %}
     <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
     {% endblock %}
@@ -17,14 +17,31 @@
         <div class="top">
             <p>Welcome on Tabletop Infinite's Marketplace !!!</p>
             <input type="text" placeholder="Search templates..." id="input-search">
+
+            <button onclick=FilterByAuthor("{{ currentUser.email }}")>Mes Templates</button>
+            <select id="ratingFilter">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            
+
+            </select>
+        
         </div>
         <div class="templates-container">
             {% for template in templates %}
                 <div class="template">
                     <div class="name">{{template.name}}</div>
                     <div class="contenu">{{ template.contenu | raw }}</div>
+                    
+                    <div>
                     <div class="description">{{ template.description}}</div>
-                    <div class="rating">{{ template.rating}}/5</div>
+                    <div class="author">{{ template.Users}}</div>
+                    </div>
+                    <div class="rating"><div class="noteRating">{{ template.rating}}</div>/5</div>
                     <a href="/sheet_creator/{{template.id}}">Editer</a>
                 </div>
 
@@ -35,7 +52,8 @@
     
 </body>
 <script type="text/javascript">
-let allTemplates = document.getElementsByClassName('template-card');
+let allTemplates = document.getElementsByClassName('name');
+let allTemplatesDiv = document.getElementsByClassName('template');
 let input = document.getElementById('input-search');
 console.log(input);
 
@@ -43,19 +61,60 @@ input.addEventListener('input', e =>{
     let search = e.target.value;
     for (let i = 0; i < allTemplates.length; i++) {
         if (!allTemplates[i].innerText.toLowerCase().includes(search.toLowerCase())) {
-            allTemplates[i].style.display = "none"
+            allTemplatesDiv[i].style.display = "none"
         }else{
-            allTemplates[i].style.display = "block"
+            allTemplatesDiv[i].style.display = "flex"
         }
     }
 })
 
 for (let i = 0; i < allTemplates.length; i++) {
     allTemplates[i].innerHTML = allTemplates[i].innerText;
-
+    
     
 }
 
+
+function FilterByAuthor(author){
+    console.log(author)
+for (let i = 0; i < allTemplates.length; i++) {
+    let divAuthor = document.getElementsByClassName('author');
+        if (!divAuthor[i].innerText.toLowerCase().includes(author.toLowerCase())) {
+            allTemplatesDiv[i].style.display = "none"
+        }else{
+            allTemplatesDiv[i].style.display = "flex"
+        }
+    }
+}
+
+
+
+let inputRating = document.getElementById("ratingFilter");
+
+inputRating.onchange = function()
+{
+    
+    for (let i = 0; i < allTemplates.length; i++) {
+    let divRating = document.getElementsByClassName('noteRating');
+    
+        if (!divRating[i].innerText.toLowerCase().includes(this.value.toLowerCase())) {
+            allTemplatesDiv[i].style.display = "none"
+        }else{
+            allTemplatesDiv[i].style.display = "flex"
+        }
+    }
+}
+
+   /* 
+for (let i = 0; i < allTemplates.length; i++) {
+    let divAuthor = document.getElementsByClassName('author');
+        if (!divAuthor[i].innerText.toLowerCase().includes(author.toLowerCase())) {
+            allTemplatesDiv[i].style.display = "none"
+        }else{
+            allTemplatesDiv[i].style.display = "flex"
+        }
+    }
+*/
 
 </script>
 </html>

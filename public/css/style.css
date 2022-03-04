@@ -5,7 +5,7 @@ html {
 body {
   margin: 0px;
   min-height: 100%;
-  background-color: rgb(150, 150, 150);
+  background-color: white;
 }
 
 nav {
@@ -15,12 +15,19 @@ nav {
   justify-content: space-around;
   align-items: center;
   border-top: solid 1px;
+  color: black;
 }
 
 nav a {
   text-decoration: none;
   color: black;
 }
+
+.noteRating{
+  display: flex;
+  flex-direction: row;
+}
+
 
 nav a:hover {
   color: grey;
@@ -137,10 +144,10 @@ header {
 
 
 a:visited{
-  color: white;
+  color: black;
 }
 a:link{
-  color: white;
+  color: black;
 }
 
 a{
@@ -158,6 +165,10 @@ a{
   background-color: white;
 }
 
+.rating{
+  display: flex;
+  flex-direction: row;
+}
 
 .contenu{
   border: solid;

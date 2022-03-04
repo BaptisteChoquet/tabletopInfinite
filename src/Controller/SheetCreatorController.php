@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Template;
 use App\Entity\Favory;
 use App\Entity\Users;
 use App\Entity\Widget;
@@ -74,7 +75,7 @@ class SheetCreatorController extends AbstractController
         $repository = $doctrine->getRepository(Widget::class)->findAll();
         $users = $this->getUser();
         $favorys = $doctrine->getRepository(Favory::class)->findby(['users'=>$users]);
-        $template = $doctrine->getRepository(Template::class)->findOneBy(["id" => 10]);
+        $template = $doctrine->getRepository(Template::class)->findOneBy(["id" => $id]);
         return $this->render('blank_page/index.html.twig', [
             'controller_name' => 'SheetCreatorController',
             'widgets' => $repository,

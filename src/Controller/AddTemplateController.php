@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Users;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,11 +19,13 @@ class AddTemplateController extends AbstractController
         $template->setName($_POST["name"]);
         $template->setType("bebou");
         $template->setContenu($_POST["page"]);
+        $template->setDescription($_POST["description"]);
+        $users = $this->getUser();
+        $template->setUsers($users);
         $em = $this->getDoctrine()->getManager();
         $em->persist($template);
         $em->flush();
-        //$user = $this->container->get('security.token_storage')->getToken()->getUser();
-        //$user = $user->getName();
+        
 
         
         return new Response("");
