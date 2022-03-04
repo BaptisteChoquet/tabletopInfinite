@@ -100,6 +100,7 @@ function dragElement(elmnt) {
 
   function dragMouseDown(e) {
     e = e || window.event;
+    console.log(e);
     e.preventDefault();
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
@@ -119,9 +120,15 @@ function dragElement(elmnt) {
     pos4 = e.clientY;
     console.log(pos1,pos2,pos3,pos4);
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.top = (pos4-(50)) + "px";
+    console.log(elmnt.style.height);
+    console.log(elmnt.style);
+    
+    console.log(elmnt.offsetTop);
     console.log(elmnt.style.top);
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    
+
+    elmnt.style.left = (pos3-400) + "px";
   }
 
   function closeDragElement() {
@@ -133,17 +140,20 @@ function dragElement(elmnt) {
 }
 
 function closeDiv(id){
+  
   let div = document.getElementById(id);
   div.style.display = "none";
+  
+
 }
 
 function setDiv(id){
   console.log("blockToInsert");
   let div = document.getElementById(id);
   let display = document.getElementById("sheet-preview-id");
+  console.log(div.style.display);
   let blockToInsert = document.createElement("Widget");
   blockToInsert.appendChild(div);
   console.log(blockToInsert);
   display.appendChild(blockToInsert);
-  let 
 }

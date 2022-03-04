@@ -4,14 +4,102 @@
 {% endblock %}
 
 {% block body %}
-	<head>
-		{% block stylesheets %}
-			<link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet"/>
-			<link href="{{ asset('css/characterSheet.css') }}" type="text/css" rel="stylesheet"/>
-		{% endblock %}
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-		<script>
-			function fav(idWidget, idButton) {
+<head>
+    {% block stylesheets %}
+        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('css/characterSheet.css') }}" type="text/css" rel="stylesheet" />
+    
+        <head> 
+  </head>
+    {% endblock %}
+</head>
+{% include 'tabletop_infinite/Marketplace/navbar.html.twig' %}
+
+
+<div class="sheet-creator">
+<div class="widget-list" id="WL">
+<div class="hide">
+    </div>
+    <h1>Widgets</h1>
+    <div class="cont_btn">
+        <button onclick="apercu()" >Apercu</button>
+        <button onclick="save()">Sauvegarder</button>
+    </div>
+    
+    <div class="recherche">
+        <input type="text" placeholder="Rechercher un widget" name="search" id="search">
+        <button>Rechercher</button>
+    </div>
+    <script>
+        let content = "";
+    </script>
+    {% for widget in widgets %}
+    <div class="widget_container">
+        <div class="name" style="display:flex; justify-content:space-between;">
+            <div>{{ widget.name }} </div>
+                        <button id="closeBtn" onclick="closeDiv({{ widget.id}})">X</button>
+                        {% if favorys %}
+                        
+                        {% for favory in favorys %}
+                            {% if widget == favory.widget %}
+                                <a href="/suppFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
+                                {% else %}
+                               <a href="/addFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
+                            {% endif %}
+                        {% endfor %}
+                        {% else %}
+                            
+                         <a href="/addFavory/{{app.user.id}}/{{widget.id}}"><button id="favoryBtn">Favory</button></a>
+
+                        {% endif %}
+                
+                
+            
+            
+        </div>
+        
+        <hr>
+        <div class="preview">
+            <div onclick="setDiv({{ widget.id}})" class="widget" id="{{ widget.id}}">
+            {{ widget.contenu|raw }}
+
+            </div>
+        </div>
+        <hr>
+        <div class="information">
+            <p class="auteur">Auteur: {{ widget.auteur }}</p>
+            
+            <p class="rating">Rating: {{ widget.rating }}/5</p>
+        </div>
+    </div>
+    {% endfor %}
+   
+</div>
+<form action="/add/template" class="pop_up_save" id="pop_up_save" method="post">
+    <h1>Sauvegarder</h1>
+    <label>Quel est le nom de votre projet?</label>
+    <input type="text" id="nameTemplate" name="name">
+    <input type="text" id="descriptionTemplate" name="description">
+    <input type="text" id="invisiblevalue" name="page">
+    <button >Sauvegarder</button>
+</form>
+<div class="sheet-preview" id="sheet-preview-id" ondrop="drop(event)" ondragover="allowDrop(event)">
+{% if template  %}
+ {{template.contenu|raw}}
+{% endif %}
+
+</div>
+</div>
+
+<script>
+
+
+
+</script>
+
+<script src="{{ asset('js/widgets.js') }}">
+    
+</script>
 
 jQuery.ajax({
 url: '/sheet_creator',
