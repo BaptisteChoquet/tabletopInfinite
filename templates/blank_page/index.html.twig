@@ -105,7 +105,8 @@ div.style.display = "none";
 			{% endfor %}
 
 		</div>
-		<form action="/add/template" class="pop_up_save" id="pop_up_save" method="post">
+        <div class="pop_up_save" id="pop_up_save">
+            <form action="/add/template"  method="post">
 			<h1>Sauvegarder</h1>
 			<label>Quel est le nom de votre projet?</label>
 			<input type="text" id="nameTemplate" name="name">
@@ -113,13 +114,21 @@ div.style.display = "none";
 			<input type="text" id="invisiblevalue" name="page">
 			<button>Sauvegarder</button>
 		</form>
+        <button onclick="closePopUp()">Quitter</button>
+        </div>
+		
 		<div class="sheet-preview" id="sheet-preview-id" ondrop="drop(event)" ondragover="allowDrop(event)">
 			{% if template  %}
 				{{template.contenu|raw}}
 			{% endif %}
 
 		</div>
-
+        <script>
+        function closePopUp(){
+            let popup = document.getElementById("pop_up_save");
+            popup.style.display = "none";
+        }
+        </script>
 
 		<script src="{{ asset('js/widgets.js') }}"></script>
 

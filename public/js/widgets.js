@@ -145,5 +145,5 @@ function setDiv(id){
   blockToInsert.appendChild(div);
   console.log(blockToInsert);
   display.appendChild(blockToInsert);
-  let 
 }
+

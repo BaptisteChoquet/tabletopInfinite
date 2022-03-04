@@ -67,7 +67,7 @@ class SheetCreatorController extends AbstractController
 
 
     /**
-    * @Route("/sheet_creator/template/{id}", name="sheet_creatorId")
+    * @Route("/sheet_creator/{id}", name="sheet_creatorId")
     */
     public function index2(ManagerRegistry $doctrine,int $id): Response
     {
