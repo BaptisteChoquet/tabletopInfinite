@@ -1,17 +1,33 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+        <link href="{{ asset('css/styleLogin.css') }}" type="text/css" rel="stylesheet" />
+        
+{% endblock %}
 {% block title %}Register{% endblock %}
 
 {% block body %}
+<div style="
+background-color: black; 
+background-image: url('{{ asset('images/sky.jpg') }}'); 
+">
+<div class="main">
     <h1>Register</h1>
-
+    <div class="form">
     {{ form_start(registrationForm) }}
+    <div class="Email">
         {{ form_row(registrationForm.email) }}
+        </div>
+        <div class="password">
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+        </div>
+        
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit">Register</button>
     {{ form_end(registrationForm) }}
+    </div>
+    </div>
+</div>
 {% endblock %}

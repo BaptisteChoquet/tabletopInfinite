@@ -1,23 +1,39 @@
 {# templates/login/index.html.twig #}
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+        <link href="{{ asset('css/styleLogin.css') }}" type="text/css" rel="stylesheet" />
+        
+{% endblock %}
 {# ... #}
 
 {% block body %}
+<div style="
+background-color: black; 
+background-image: url('{{ asset('images/sky.jpg') }}'); 
+">
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
+    <div class="main">
+    
+    <form action="{{ path('login') }}" method="post" class="form">
+    <h1>Connexion</h1>
+    <div class="Email">
+        <label class="label" for="username">Email:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Entrez un Email"/>
+    </div>
+    <div class="password">
+        <label class="label" for="password">Password:</label>
+        <input type="password" id="password" name="_password" placeholder="Entrez le Mot de Passe"/>
+    </div>
 
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
+        
 
         {# If you want to control the URL the user is redirected to on success
         <input type="hidden" name="_target_path" value="/account"/> #}
 
-        <button type="submit">login</button>
+        <button type="submit">Login</button>
     </form>
+    </div>
+</div>
 {% endblock %}
